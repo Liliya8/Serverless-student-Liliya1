@@ -33,9 +33,9 @@ module.exports = async function (context, req) {
             cat1: base64data1,
             cat2: base64data2,
             names: [name1, name2]
-        } 
+        }
     };
 
 }
-
+//update
 //https://cataas.com/cat/cute/says/Serverless
