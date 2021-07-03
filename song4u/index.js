@@ -2,10 +2,10 @@ const querystring = require('querystring');
 const fetch = require('node-fetch'); // use this to make requests 
 
 module.exports = async function (context, req) {
-    context.log('reqBody:', reqBody);
     const reqBody = req.body;
+    context.log('reqBody:', reqBody);
 
-    const queryObject = queryString.parse(req.Body);
+    const queryObject = querystring.parse(req.body);
     context.log('queryObject:', queryObject);
     context.log(queryObject.MediaUrl0);
     let resp = await fetch(queryObject.MediaUrl0, {
@@ -17,7 +17,7 @@ module.exports = async function (context, req) {
     let result = await analyzeImage(data);
     context.log(result);
 
-    let age = parseInt(result[0].faceAttriutes.age);
+    let age = parseInt(result[0].faceAttributes.age);
     context.log(age);
     let generation = '';
 
@@ -42,8 +42,8 @@ async function analyzeImage(image) {
     //subscription key and endpoint
     //const suscriptKey=process.env.SUBSCRIPTION_KEY;
     //const theUrl=process.env.SONGREC_ENDPOINT+'face/v1.0/detect';
-    const subscriptKey = process.env.SUBSCRIPTIONKEY;
-    const theUrl = process.env.ENDPOINT + 'face/v1.0/detect';
+    const subscriptKey = process.env.FACEAPI_KEY11;
+    const theUrl = process.env.FACEAPI_ENDPOINTT + 'face/v1.0/detect';
 
     let theParameters = new URLSearchParams({
         'returnFaceId': 'true',
