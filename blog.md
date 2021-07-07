@@ -1,6 +1,6 @@
 # [Replace this with your project title]
 
-## About Me Hi, I am student. I am building a healthcare app. 
+## About Me
 
 ## The Premise
 
