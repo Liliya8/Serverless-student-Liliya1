@@ -14,6 +14,24 @@ module.exports = async function (context, req) {
     var body = req.body;
     var parsedBody = multipart.Parse(body, boundary);
 
+    var filetype = parsedBody[0].type;
+    if (filetype == "image/png") {
+        ext = "png";
+    } else if (filetype == "image/jpeg") {
+        ext = "jpeg";
+    } else if (filetype == "image/jpg") {
+        ext = "jpg"
+    } else {
+        username = "invalidimage"
+        ext = "";
+    }
+
+    var responseMessage = await uploadFile(parsedBody, ext);
+    context.res = {
+        body: responseMessage
+    };
+
+
 
     context.res = {
         // status: 200, /* Defaults to 200 */
@@ -30,5 +48,5 @@ async function uploadFile(parsedBody, ext) {
 
     const uploadBlobResponse = await blockBlobClient.upload(parsedBody[0].data, parsedBody[0].data.length);
 
-    return "Your bloob is saved";
+    return ("Your blob is saved");
 }
