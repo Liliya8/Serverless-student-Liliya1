@@ -15,6 +15,7 @@ module.exports = async function (context, req) {
         var password = req.headers['codename'] // get the header called 'codename'
 
         var boundary = multipart.getBoundary(req.headers['content-type']);
+
         var body = req.body;
         var parsedBody = multipart.Parse(body, boundary);
 
@@ -29,12 +30,11 @@ module.exports = async function (context, req) {
             username = "invalidimage"
             ext = "";
         }
-
         responseMessage = await uploadFile(parsedBody, ext, password);
+
     } catch (err) {
 
-        context.log("Undefined body image");
-        responseMessage = "Sorry!No image attached."
+        responseMessage = "Sorry! No image attached."
     }
 
 
@@ -45,13 +45,13 @@ module.exports = async function (context, req) {
     };
 }
 async function uploadFile(parsedBody, ext, password) {
+
     const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
     const containerName = "images";
     const containerClient = blobServiceClient.getContainerClient(containerName);    // Get a reference to a container
 
-    const blobName = password + "."(ext);    // Create the container
+    const blobName = password + "." + ext;    // Create the container
     const blockBlobClient = containerClient.getBlockBlobClient(blobName); // Get a block blob client
-
     const uploadBlobResponse = await blockBlobClient.upload(parsedBody[0].data, parsedBody[0].data.length);
 
     return ("Your blob is saved");
