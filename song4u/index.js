@@ -55,7 +55,7 @@ async function analyzeImage(image) {
     //subscription key and endpoint
     //const suscriptKey=process.env.SUBSCRIPTION_KEY;
     //const theUrl=process.env.SONGREC_ENDPOINT+'face/v1.0/detect';
-    const subscriptKey = process.env.FACEAPI_ENDPOINTT;
+    const subscriptKey = process.env.FACEAPI_KEY11;
     const theUrl = process.env.FACEAPI_ENDPOINTT + 'face/v1.0/detect';
 
     let theParameters = new URLSearchParams({
