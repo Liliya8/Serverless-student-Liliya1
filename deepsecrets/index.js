@@ -44,8 +44,9 @@ async function createDocument(newItem) {
     // Make sure Tasks database is already setup. If not, create it.
     await create(client, databaseId, containerId);
     const querySpec = {
-        query: "SELECT top 1 * FROM c order by c._ts desc"
+        query: "SELECT * from c"
     };
+
 
     // read all items in the Items container
     const { resources: items } = await container.items
@@ -65,7 +66,10 @@ module.exports = async function (context, req) {
     }
 
     let items = await createDocument(newMessage);
-    const responseMessage = `Thanks 😊! Stored your secret "${queryObject.Body}". 😯 Someone confessed that: ${JSON.stringify(items[0].message)}`
+
+    var random_value = Math.floor(items.length * Math.random());
+
+    const responseMessage = `Thanks 😊! Stored your secret "${queryObject.Body}". 😯 Someone confessed that: ${JSON.stringify(items[random_value].message)}`
 
     context.res = {
         body: responseMessage
