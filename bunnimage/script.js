@@ -40,3 +40,27 @@ async function getImage(event) {
 
 
 }
+
+async function downloadImage(e) {
+    e.preventDefault();
+    const username = document.getElementById("downloadusername")
+    if (username.value !== "") {
+        const url = "https://func-liliya-hackervoice.azurewebsites.net/api/bunnimage-download";
+
+        fetch(url, {
+            headers: {
+                username: username.value
+            }
+        })
+            .then(res => res.json())
+            .then(response => {
+                console.log("response", response)
+                if (response.success) {
+                    window.open(response.downloadUri, "_self")
+                }
+            })
+
+    } else {
+        alert("No input error")
+    }
+}
