@@ -2,7 +2,7 @@ async function getImage(event) {
     event.preventDefault()
     var myform = document.getElementById("myform")
     // get image and filename uploaded by user via the form 
-    let nameInput = document.getElementById("name");
+    let nameInput = document.getElementById("username");
     let fileInput = document.getElementById("image");
     let file = fileInput.files[0];
 
@@ -10,7 +10,7 @@ async function getImage(event) {
     payload.append("file", file);
     $('#output').text("Thanks!")
 
-    if (document.getElementById("name").value !== '') {
+    if (nameInput.value !== '') {
 
 
         try {
