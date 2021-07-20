@@ -1,23 +1,9 @@
 const fetch = require('node-fetch')
 
-//function generate_name() {
-// var names = ["Shreya", "Emily", "Fifi", "Beau", "Evelyn", "Julia", "Daniel", "Fardeen"];
-
-//var random_number = Math.floor(names.length * Math.random());
-// var random_name = names[random_number];
-//return random_name;
-//}
-
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-
-    // let name1 = generate_name();
-    // let name2 = generate_name();
-    let name1 = req.query.name1
-    let name2 = req.query.name2
-    let name3 = req.query.name3
-    let name4 = req.query.name4
+    let { name1, name2, name3, name4 } = req.query;
 
     async function getCat(name) {
 
@@ -36,19 +22,12 @@ module.exports = async function (context, req) {
     let cat3 = await getCat(name3)
     let cat4 = await getCat(name4)
 
-
-    //let resp2 = await fetch(endpoint, {
-    //   method: "GET"
-    //});
-
-    //let data2 = await resp2.arrayBuffer();
-    //let base64data2 = Buffer.from(data2).toString('base64');
     context.res = {
         body: {
-            cat1: cat1,
-            cat2: cat2,
-            cat3: cat3,
-            cat4: cat4,
+            name1: cat1,
+            name2: cat2,
+            name3: cat3,
+            name4: cat4,
         }
     };
 
