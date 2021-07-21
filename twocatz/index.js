@@ -22,13 +22,17 @@ module.exports = async function (context, req) {
     let cat3 = await getCat(name3)
     let cat4 = await getCat(name4)
 
+    let body = JSON.stringify({
+        name1: cat1,
+        name2: cat2,
+        name3: cat3,
+        name4: cat4,
+    })
+
+    body = JSON.parse(body)
+
     context.res = {
-        body: {
-            name1: cat1,
-            name2: cat2,
-            name3: cat3,
-            name4: cat4,
-        }
+        body
     };
 
 }
