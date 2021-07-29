@@ -1,0 +1,12 @@
+body{
+    box-sizing: border-box;
+}
+
+form{
+    display: none;
+}
+
+nav a{
+    text-decoration: underline;
+    color: rgb(77, 77, 226);
+}
