@@ -1,39 +1,38 @@
 const fetch = require('node-fetch')
 
-function generate_name() {
-    var names = ["Shreya", "Emily", "Fifi", "Beau", "Evelyn", "Julia", "Daniel", "Fardeen"];
-
-    var random_number = Math.floor(names.length * Math.random());
-    var random_name = names[random_number];
-    return random_name;
-}
-
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    let endpoint = "https://cataas.com/cat/cute/says/Bitcamp";
-    let name1 = generate_name();
-    let name2 = generate_name();
+    let { name1, name2, name3, name4 } = req.query;
 
-    let resp1 = await fetch(endpoint, {
-        method: "GET"
-    });
+    async function getCat(name) {
 
-    let data1 = await resp1.arrayBuffer();
-    let base64data1 = Buffer.from(data1).toString('base64');
+        let endpoint = "https://cataas.com/cat/cute/says/" + name;
+        let resp = await fetch(endpoint, {
+            method: 'GET'
+        });
 
-    let resp2 = await fetch(endpoint, {
-        method: "GET"
-    });
+        let data = await resp.arrayBuffer();
+        let base64data = Buffer.from(data).toString('base64');
+        return base64data;
+    }
 
-    let data2 = await resp2.arrayBuffer();
-    let base64data2 = Buffer.from(data2).toString('base64');
+    let cat1 = await getCat(name1)
+    let cat2 = await getCat(name2)
+    let cat3 = await getCat(name3)
+    let cat4 = await getCat(name4)
+
+    let body = JSON.stringify({
+        name1: cat1,
+        name2: cat2,
+        name3: cat3,
+        name4: cat4,
+    })
+
+    body = JSON.parse(body)
+
     context.res = {
-        body: {
-            cat1: base64data1,
-            cat2: base64data2,
-            names: [name1, name2]
-        }
+        body
     };
 
 }
