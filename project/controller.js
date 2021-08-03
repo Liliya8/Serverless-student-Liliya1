@@ -10,3 +10,17 @@ module.exports.createUser = (req, res) => {
         }
     })
 }
+
+module.exports.login = (req, res) => {
+    const { email, password } = req.body;
+    User.find({ email, password }, (err, data) => {
+        if (err) {
+            res.send(err)
+        } else if (!data.length) {
+            res.json({ success: false, error: "User information incorrect!" })
+        }
+        else {
+            res.json({ success: true, data: data[0] })
+        }
+    })
+}

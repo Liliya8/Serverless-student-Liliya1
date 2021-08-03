@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <main>
+        <nav class="links">
+            <a href="./index.html">Login/Signup</a>
+            <a id="logout">Logout</a>
+        </nav>
+        <h1 class="username"></h1>
+        <div>
+            <button class="calcCalory">Calculate Calory</button>
+            <form class="calory-form">
+                <div>
+                    <label for="">Food 1</label>
+                    <input type="number" placeholder="qty" name="" id="qty1">
+                    <input type="text" name="" placeholder="food" id="food1">
+                </div>
+                <div>
+                    <label for="">Food 2</label>
+                    <input type="number" placeholder="qty" name="" id="qty2">
+                    <input type="text" name="" placeholder="food" id="food2">
+                </div>
+                <div>
+                    <label for="">Food 3</label>
+                    <input type="number" placeholder="qty" name="" id="qty3">
+                    <input type="text" name="" placeholder="food" id="food3">
+                </div>
+                <div>
+                    <label for="">Food 4</label>
+                    <input type="number" placeholder="qty" name="" id="qty4">
+                    <input type="text" name="" placeholder="food" id="food4">
+                </div>
+                <div class="btn-wrap">
+                    <button class="get-calory">Submit</button><button class="cancel">Cancel</button>
+                </div>
+            </form>
+            <div class="table-wrapper">
+                <table id="result">
+                    <thead>
+                        <tr>
+                            <th>Food</th>
+                            <th>Quantity</th>
+                            <th>Carbohydate</th>
+                            <th>Total Fat</th>
+                            <th>Saturated Fat</th>
+                            <th>Protein</th>
+                            <th>Sodium</th>
+                            <th>Sugar</th>
+                            <th>Calories</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result-body"></tbody>
+                </table>
+                <div class="show-calory">
+                    <h2>Total Calories: </h2>
+                    <p id="calories"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./dashboard.js"></script>
+</body>
+
+</html>

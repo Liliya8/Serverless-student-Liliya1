@@ -10,3 +10,78 @@ nav a{
     text-decoration: underline;
     color: rgb(77, 77, 226);
 }
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: black;
+    padding: 12px 0;
+}
+
+.links a{
+    color: white;
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+
+.username{
+    text-transform: capitalize;
+}
+
+main{
+    text-align: center;
+}
+
+.calcCalory, .get-calory, .cancel{
+    outline:none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: teal;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.cancel{
+    background-color: red;
+}
+
+#qty1, #qty2, #qty3, #qty4 {
+    width: 50px;
+}
+
+.btn-wrap{
+margin-top: 20px;
+}
+
+.table-wrapper{
+    display: none;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#result{
+    width: 100%;
+}
+
+td, th{
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.show-calory{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.show-calory h2{
+    margin-right: 10px;
+}
+
+.show-calory p{
+margin: 0;
+}
