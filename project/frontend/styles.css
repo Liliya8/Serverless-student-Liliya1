@@ -54,13 +54,32 @@ main{
 
 .btn-wrap{
 margin-top: 20px;
+display: flex;
+justify-content: flex-end;
 }
 
-.table-wrapper{
+.btn-wrap button{
+    margin-left: 12px;
+}
+
+.table-wrapper, .meal-history{
     display: none;
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
+}
+
+.meal-data{
+    display: none;
+}
+
+.meal-history{
+    display: block;
+}
+
+.meal-history table{
+    margin-bottom: 20px;
+    margin: 0 auto 20px auto
 }
 
 #result{
@@ -84,4 +103,35 @@ td, th{
 
 .show-calory p{
 margin: 0;
+}
+
+form{
+    max-width: 300px;
+    width: 100%;
+    margin: 20px auto 0 auto;
+    background-color: black;
+    padding: 0 30px;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid rgb(36, 35, 35)
+}
+
+form > div{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+form label{
+    width: 115px;
+}
+
+form input{
+    flex: 1;
+    height: 20px;
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: flex-end;
 }

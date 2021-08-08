@@ -19,6 +19,7 @@
         <div>
             <button class="calcCalory">Calculate Calory</button>
             <form class="calory-form">
+                <h2>Food List</h2>
                 <div>
                     <label for="">Food 1</label>
                     <input type="number" placeholder="qty" name="" id="qty1">
@@ -47,8 +48,8 @@
                 <table id="result">
                     <thead>
                         <tr>
-                            <th>Food</th>
-                            <th>Quantity</th>
+                            <th>Name</th>
+                            <th>Serving size</th>
                             <th>Carbohydate</th>
                             <th>Total Fat</th>
                             <th>Saturated Fat</th>
@@ -64,6 +65,11 @@
                     <h2>Total Calories: </h2>
                     <p id="calories"></p>
                 </div>
+            </div>
+
+            <div class="meal-history">
+                <button id="view-history">View Meal history</button>
+                <div class="meal-data"></div>
             </div>
         </div>
     </main>

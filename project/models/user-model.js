@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//creating user model, also known as schema or table - structure of the user data
 const userSchema = mongoose.Schema({
     fullName: {
         type: String,
@@ -23,4 +24,5 @@ const userSchema = mongoose.Schema({
     },
 })
 
+//exporting the schema to be used for user related actions
 module.exports = mongoose.model("user", userSchema);
