@@ -145,7 +145,7 @@ function showHistory() {
                             <th>Serving size</th>
                             <th>Calories</th>
                         </tr>
-                </thead>`
+                </thead>` 
                 let tbody = document.createElement("tbody");
                 d.meal.forEach(m => {
                     let row = document.createElement("tr");
