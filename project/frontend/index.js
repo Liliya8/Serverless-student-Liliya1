@@ -46,7 +46,7 @@ const registerUser = (event) => {
             age: age.value
         })
     })
-    //converting response to json format
+    //convert response to json format
         .then(res => res.json())
         .then(resp => {
             //if registration is successful
